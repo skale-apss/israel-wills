@@ -1,0 +1,9 @@
+# OS files
+.DS_Store
+
+# Specification documents (private)
+specificaition/
+
+# Editor files
+.vscode/
+.idea/

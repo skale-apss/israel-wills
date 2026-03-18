@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draft Preview | IsraelWills</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .minimal-nav {
+            background-color: white;
+            padding: 24px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .success-bar {
+            background-color: var(--color-light-blue);
+            padding: 16px 0;
+            text-align: center;
+            color: var(--color-deep-navy);
+            font-weight: 500; border-bottom: 1px solid var(--color-willful-blue);
+        }
+
+        .document-wrapper {
+            background-color: var(--color-border);
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .document-preview {
+            background-color: white;
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            overflow-y: auto;
+            box-shadow: var(--shadow-hover);
+            padding: 60px;
+            position: relative;
+            font-family: serif;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 120px;
+            color: rgba(0,0,0,0.05);
+            font-weight: 900;
+            font-family: sans-serif;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .checkout-panel {
+            background-color: white;
+            padding: 40px 0;
+            border-top: 1px solid var(--color-border);
+        }
+    </style>
+</head>
+<body style="background-color: var(--color-bg-subtle);">
+
+    <header class="minimal-nav">
+        <div class="container">
+            <a href="index.html" class="logo" style="justify-content: center;">
+                IsraelWills<span class="logo-dot">.</span>com
+            </a>
+        </div>
+    </header>
+
+    <div class="success-bar">
+        <div class="container">
+            <i class="fa-solid fa-circle-check" style="color: var(--color-success-green); margin-right: 8px;"></i>
+            Your will is ready. Review it below and complete your purchase.
+        </div>
+    </div>
+
+    <main>
+        <div class="document-wrapper">
+            <div class="document-preview">
+                <div class="watermark">DRAFT</div>
+                
+                <h1 style="text-align: center; font-size: 24px; margin-bottom: 40px;">LAST WILL AND TESTAMENT</h1>
+                
+                <p>THIS IS THE LAST WILL AND TESTAMENT of me, <strong>[Client Name]</strong>, currently residing in Israel, holding Israeli Teudat Zehut number <strong>[ID Number]</strong>.</p>
+                
+                <h2 style="font-size: 18px; margin-top: 32px; border-bottom: 1px solid #ccc; padding-bottom: 8px;">1. REVOCATION OF PREVIOUS WILLS</h2>
+                <p>I hereby revoke all former Wills, Codicils, and other testamentary dispositions made by me at any time heretofore, and declare this to be my Last Will and Testament.</p>
+
+                <h2 style="font-size: 18px; margin-top: 32px; border-bottom: 1px solid #ccc; padding-bottom: 8px;">2. FAMILY DETAILS</h2>
+                <p>I declare that I am <strong>[Marital Status]</strong>.</p>
+                <p>I have the following children: <strong>[Children Names]</strong>.</p>
+
+                <h2 style="font-size: 18px; margin-top: 32px; border-bottom: 1px solid #ccc; padding-bottom: 8px;">3. APPOINTMENT OF EXECUTOR</h2>
+                <p>I appoint <strong>[Executor Name]</strong> to be the Executor of this my Will. If they are unwilling or unable to act, I appoint <strong>[Backup Executor]</strong> in their place.</p>
+
+                <h2 style="font-size: 18px; margin-top: 32px; border-bottom: 1px solid #ccc; padding-bottom: 8px;">4. DISTRIBUTION OF ESTATE</h2>
+                <p>Specific instructions regarding my assets (including <strong>[Assets List]</strong>):</p>
+                <p><strong>[Estate Distribution Text]</strong></p>
+
+                <div style="margin-top: 80px;">
+                    <p>IN WITNESS WHEREOF I have hereunto set my hand this ____ day of ______________, 20__.</p>
+                    <br><br>
+                    <p>___________________________<br>Signature of Testator</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="checkout-panel">
+            <div class="container" style="max-width: 600px; text-align: center;">
+                <h2 class="section-headline">Ready to make it official?</h2>
+                <p style="color: var(--color-text-secondary); margin-bottom: 32px;">Once purchased, the draft watermark will be removed and you will receive instructions on how to sign your will with two witnesses to make it legally binding under Israeli law.</p>
+                
+                <div class="card" style="margin-bottom: 32px; background-color: var(--color-bg-subtle);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-border); padding-bottom: 16px; margin-bottom: 16px;">
+                        <div style="font-size: 18px; font-weight: 600;">Israeli Will Package</div>
+                        <div style="font-size: 24px; font-weight: 700; color: var(--color-deep-navy);">₪700</div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="font-weight: 600;">Total (Including VAT)</div>
+                        <div style="font-size: 24px; font-weight: 700; color: var(--color-deep-navy);">₪700</div>
+                    </div>
+                </div>
+
+                <!-- Placeholder for PayPal / Email capture -->
+                <a href="confirmation.html" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 18px; margin-bottom: 16px;">Continue to Payment <i class="fa-solid fa-lock" style="margin-left: 8px;"></i></a>
+                
+                <a href="upsell.html" style="color: var(--color-text-secondary); font-size: 14px; text-decoration: underline;">This is too complicated — I need to speak to a lawyer.</a>
+            </div>
+        </div>
+    </main>
+
+    <footer style="padding: 40px 0; background-color: var(--color-deep-navy); color: white; text-align: center;">
+        <div class="container">
+            <div class="logo" style="color: white; justify-content: center; margin-bottom: 16px;">IsraelWills<span class="logo-dot">.</span>com</div>
+            <div style="color: rgba(255,255,255,0.5); font-size: 12px;">&copy; 2026 IsraelWills.com. All rights reserved. Secure checkout via PayPal.</div>
+        </div>
+    </footer>
+
+</body>
+</html>

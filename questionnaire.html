@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will Questionnaire | IsraelWills</title>
+    <meta name="description" content="Create your legally-binding Israeli will.">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: var(--color-bg-subtle);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .minimal-nav {
+            background-color: white;
+            padding: 24px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .progress-container {
+            padding: 32px 0;
+            text-align: center;
+        }
+
+        .progress-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .progress-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--color-border);
+            transition: background-color var(--transition-fast);
+        }
+
+        .dot.active {
+            background-color: var(--color-willful-blue);
+        }
+
+        .question-card {
+            background-color: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-subtle);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            display: none; /* Hide all by default, JS will show */
+        }
+
+        .question-card.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .card-accent {
+            height: 6px;
+            width: 100%;
+            background-color: var(--color-willful-blue);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .card-content {
+            padding: 48px 40px;
+        }
+
+        .question-text {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--color-deep-navy);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        /* Large tap-friendly buttons */
+        .option-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .option-btn {
+            background-color: white;
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .option-btn:hover {
+            border-color: var(--color-willful-blue);
+            background-color: var(--color-light-blue);
+        }
+
+        .option-btn.selected {
+            border-color: var(--color-willful-blue);
+            background-color: var(--color-light-blue);
+            color: var(--color-willful-blue);
+        }
+
+        .complicated-link {
+            display: block;
+            text-align: center;
+            margin-top: 32px;
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            text-decoration: underline;
+            transition: color var(--transition-fast);
+        }
+
+        .complicated-link:hover {
+            color: var(--color-deep-navy);
+        }
+
+        .card-footer {
+            padding: 24px 40px;
+            background-color: var(--color-bg-subtle);
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* Inputs */
+        .text-input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            font-size: 16px;
+            font-family: inherit;
+            margin-bottom: 24px;
+            transition: border-color var(--transition-fast);
+        }
+
+        .text-input:focus {
+            outline: none;
+            border-color: var(--color-willful-blue);
+        }
+
+        textarea.text-input {
+            min-height: 120px;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Minimal Nav -->
+    <header class="minimal-nav">
+        <div class="container">
+            <a href="index.html" class="logo" style="justify-content: center;">
+                IsraelWills<span class="logo-dot">.</span>com
+            </a>
+        </div>
+    </header>
+
+    <main style="flex-grow: 1; padding-bottom: 80px;">
+        <div class="container">
+            
+            <!-- Progress Indicator -->
+            <div class="progress-container" id="progressIndicator">
+                <div class="progress-text">Step <span id="currentStepText">0</span> of 5</div>
+                <div class="progress-dots">
+                    <div class="dot active" id="dot0"></div>
+                    <div class="dot" id="dot1"></div>
+                    <div class="dot" id="dot2"></div>
+                    <div class="dot" id="dot3"></div>
+                    <div class="dot" id="dot4"></div>
+                    <div class="dot" id="dot5"></div>
+                </div>
+            </div>
+
+            <!-- STEP 0: Consent -->
+            <div class="question-card active" id="step0" style="border-left: 6px solid var(--color-deep-navy);">
+                <div class="card-content">
+                    <h2 class="question-text">Welcome. Let's get started.</h2>
+                    <p style="text-align: center; color: var(--color-text-secondary); margin-bottom: 32px;">Before we begin, we need your permission to collect the information required to generate your will.</p>
+                    
+                    <label style="display: flex; gap: 16px; align-items: flex-start; cursor: pointer; padding: 20px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background-color: var(--color-bg-subtle);">
+                        <input type="checkbox" id="consentCheckbox" style="margin-top: 4px; width: 18px; height: 18px; accent-color: var(--color-willful-blue);">
+                        <span style="font-size: 15px; line-height: 1.5;">I consent to provide personal information to generate my will and I agree to the <a href="privacy.html" style="color: var(--color-willful-blue);">Privacy Policy</a>.</span>
+                    </label>
+                </div>
+                <div class="card-footer" style="justify-content: flex-end;">
+                    <button class="btn btn-primary" onclick="nextStep(1)" id="btnConsent" disabled>Continue <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
+                </div>
+            </div>
+
+            <!-- STEP 1: Marital Status -->
+            <div class="question-card" id="step1">
+                <div class="card-accent"></div>
+                <div class="card-content">
+                    <h2 class="question-text">What is your marital status?</h2>
+                    <div class="option-grid">
+                        <button class="option-btn" onclick="selectOption(this, 'maritalStatus'); nextStepWithDelay()">Single</button>
+                        <button class="option-btn" onclick="selectOption(this, 'maritalStatus'); nextStepWithDelay()">Married</button>
+                        <button class="option-btn" onclick="selectOption(this, 'maritalStatus'); nextStepWithDelay()">Divorced</button>
+                        <button class="option-btn" onclick="selectOption(this, 'maritalStatus'); nextStepWithDelay()">Widowed</button>
+                    </div>
+                    <a href="upsell.html" class="complicated-link">It's Complicated (Separated, common-law, etc.)</a>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-secondary" onclick="prevStep(0)"><i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back</button>
+                    <!-- Auto-advances on click -->
+                </div>
+            </div>
+
+            <!-- STEP 2: Children -->
+            <div class="question-card" id="step2">
+                <div class="card-accent"></div>
+                <div class="card-content">
+                    <h2 class="question-text">Do you have any children?</h2>
+                    <div class="option-grid" style="margin-bottom: 24px;">
+                        <button class="option-btn" id="btnChildrenYes" onclick="toggleChildrenDetails(true)">Yes</button>
+                        <button class="option-btn" onclick="toggleChildrenDetails(false); nextStepWithDelay()">No</button>
+                    </div>
+                    
+                    <div id="childrenDetails" style="display: none; animation: fadeIn 0.3s;">
+                        <label style="font-weight: 500; display: block; margin-bottom: 8px;">Names of your children:</label>
+                        <input type="text" class="text-input" placeholder="e.g. David, Sarah">
+                        
+                        <label style="font-weight: 500; display: block; margin-bottom: 8px;">Are any of them under 18?</label>
+                        <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+                            <label><input type="radio" name="minor" value="yes"> Yes</label>
+                            <label><input type="radio" name="minor" value="no"> No</label>
+                        </div>
+                    </div>
+                    
+                    <a href="upsell.html" class="complicated-link">It's Complicated (Blended family, step-children)</a>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-secondary" onclick="prevStep(1)"><i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back</button>
+                    <button class="btn btn-primary" id="btnStep2Continue" onclick="nextStep(3)" style="display: none;">Continue <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
+                </div>
+            </div>
+
+            <!-- STEP 3 & 4 Combined in UI as Step 3: Assets -->
+            <div class="question-card" id="step3">
+                <div class="card-accent"></div>
+                <div class="card-content">
+                    <h2 class="question-text">What are your main assets?</h2>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 24px; text-align: center;">List your significant properties, bank accounts, or investments. You don't need exact figures.</p>
+                    
+                    <textarea class="text-input" placeholder="e.g. Apartment in Tel Aviv, Bank Hapoalim checking account, Meitav Dash investment portfolio..."></textarea>
+                    
+                    <a href="upsell.html" class="complicated-link">It's Complicated (Foreign assets, business ownership)</a>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-secondary" onclick="prevStep(2)"><i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back</button>
+                    <button class="btn btn-primary" onclick="nextStep(4)">Continue <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
+                </div>
+            </div>
+
+            <!-- STEP 5: Distribution -->
+            <div class="question-card" id="step4">
+                <div class="card-accent"></div>
+                <div class="card-content">
+                    <h2 class="question-text">How do you want to distribute your estate?</h2>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 24px; text-align: center;">Name your beneficiaries and specify shares (e.g. 100% to my spouse, or 50% to my sister and 50% to charity).</p>
+                    
+                    <textarea class="text-input" placeholder="e.g. 100% equally divided among my children."></textarea>
+                    
+                    <a href="upsell.html" class="complicated-link">It's Complicated (Trusts, specific item gifts)</a>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-secondary" onclick="prevStep(3)"><i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back</button>
+                    <!-- Redirects to Draft Preview -->
+                    <a href="draft-preview.html" class="btn btn-primary">Generate Will <i class="fa-solid fa-file-contract" style="margin-left: 8px;"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // JS logic to handle steps
+        let currentStep = 0;
+        const totalSteps = 4; // 0 to 4 (Step 0 is Consent, Steps 1-4 correspond to questions)
+
+        // Consent handling
+        const consentCheckbox = document.getElementById('consentCheckbox');
+        const btnConsent = document.getElementById('btnConsent');
+        
+        consentCheckbox.addEventListener('change', (e) => {
+            btnConsent.disabled = !e.target.checked;
+        });
+
+        function showStep(stepIndex) {
+            // Hide all
+            document.querySelectorAll('.question-card').forEach(card => card.classList.remove('active'));
+            // Show target
+            document.getElementById('step' + stepIndex).classList.add('active');
+            
+            // Update progress indicator
+            if(stepIndex === 0) {
+                document.getElementById('currentStepText').innerText = '0';
+            } else {
+                document.getElementById('currentStepText').innerText = stepIndex;
+            }
+            
+            // Update dots
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                if(index <= stepIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+
+            currentStep = stepIndex;
+            window.scrollTo(0, 0);
+        }
+
+        function nextStep(target) {
+            showStep(target);
+        }
+
+        function prevStep(target) {
+            showStep(target);
+        }
+
+        function nextStepWithDelay() {
+            setTimeout(() => {
+                showStep(currentStep + 1);
+            }, 300);
+        }
+
+        function selectOption(btn, groupName) {
+            // Remove selected from siblings
+            let siblings = btn.parentElement.children;
+            for(let sibling of siblings) {
+                sibling.classList.remove('selected');
+            }
+            btn.classList.add('selected');
+        }
+
+        function toggleChildrenDetails(show) {
+            const details = document.getElementById('childrenDetails');
+            const contBtn = document.getElementById('btnStep2Continue');
+            const yesBtn = document.getElementById('btnChildrenYes');
+            
+            if(show) {
+                details.style.display = 'block';
+                contBtn.style.display = 'inline-flex';
+                yesBtn.classList.add('selected');
+                
+                // Remove selected from NO
+                yesBtn.nextElementSibling.classList.remove('selected');
+            } else {
+                details.style.display = 'none';
+                yesBtn.classList.remove('selected');
+                yesBtn.nextElementSibling.classList.add('selected');
+            }
+        }
+    </script>
+</body>
+</html>
