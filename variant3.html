@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2c89c3",
+                        "navy-deep": "#081440",
+                        "willful-blue": "#2D68C4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#131a1f",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(45, 104, 196, 0.2);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 70% 30%, rgba(44, 137, 195, 0.1) 0%, transparent 50%), 
+                        radial-gradient(circle at 10% 80%, rgba(45, 104, 196, 0.05) 0%, transparent 40%);
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light text-navy-deep antialiased">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 flex h-20 items-center justify-between">
+<div class="flex items-center gap-2 group cursor-pointer">
+<div class="p-1.5 bg-primary rounded-lg text-white">
+<span class="material-symbols-outlined text-2xl font-bold">shield</span>
+</div>
+<h2 class="text-navy-deep text-xl font-extrabold tracking-tight">IsraelWills<span class="text-primary">.com</span></h2>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-navy-deep/70 hover:text-primary text-sm font-semibold transition-colors" href="#">How it Works</a>
+<a class="text-navy-deep/70 hover:text-primary text-sm font-semibold transition-colors" href="#">Pricing</a>
+<a class="text-navy-deep/70 hover:text-primary text-sm font-semibold transition-colors" href="#">FAQ</a>
+</nav>
+<div class="flex items-center gap-4">
+<a class="hidden sm:block text-navy-deep font-semibold text-sm hover:opacity-70" href="#">Log in</a>
+<button class="bg-willful-blue hover:bg-navy-deep text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-willful-blue/20">
+                    Start Your Will
+                </button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative overflow-hidden hero-gradient pt-20 pb-32">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
+<div class="flex flex-col gap-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-willful-blue text-xs font-bold uppercase tracking-wider w-fit">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                        Legally Binding in Israel
+                    </div>
+<h1 class="text-navy-deep text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight">
+                        Protect Your Family's <span class="text-willful-blue">Future</span> in Israel
+                    </h1>
+<p class="text-slate-600 text-lg lg:text-xl leading-relaxed max-w-xl">
+                        Secure your legacy with a professional Israeli will designed by legal experts. Fast, secure, and completed entirely online from anywhere in the world.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-willful-blue hover:scale-[1.02] active:scale-[0.98] text-white px-8 py-4 rounded-xl text-lg font-bold transition-all shadow-xl shadow-willful-blue/30 flex items-center justify-center gap-2">
+                            Start Your Will
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-white border border-slate-200 hover:bg-slate-50 text-navy-deep px-8 py-4 rounded-xl text-lg font-bold transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">play_circle</span>
+                            How it works
+                        </button>
+</div>
+<div class="flex items-center gap-6 pt-4">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-white bg-slate-200" data-alt="Client profile photo 1"></div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-slate-300" data-alt="Client profile photo 2"></div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-slate-400" data-alt="Client profile photo 3"></div>
+</div>
+<p class="text-sm text-slate-500 font-medium">Joined by <span class="text-navy-deep font-bold">2,500+</span> families this year</p>
+</div>
+</div>
+<div class="relative flex justify-center items-center">
+<div class="absolute inset-0 bg-primary/5 rounded-full blur-3xl scale-125"></div>
+<div class="relative w-full aspect-square max-w-[500px] flex items-center justify-center">
+<!-- Abstract Digital Security Motif -->
+<div class="relative group">
+<div class="absolute -inset-4 bg-willful-blue/20 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+<div class="relative bg-white p-12 rounded-[40px] shadow-2xl border border-slate-100">
+<span class="material-symbols-outlined text-[120px] text-willful-blue leading-none select-none drop-shadow-md">
+                                    verified_user
+                                </span>
+<div class="absolute top-0 right-0 -mr-4 mt-8 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
+<div class="bg-green-100 p-2 rounded-lg text-green-600">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<div class="text-xs font-bold text-navy-deep uppercase tracking-tighter">AES-256 Encrypted</div>
+</div>
+<div class="absolute bottom-0 left-0 -ml-6 mb-8 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
+<div class="bg-blue-100 p-2 rounded-lg text-willful-blue">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+<div class="text-xs font-bold text-navy-deep uppercase tracking-tighter">Court Validated</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3-Step Process Grid -->
+<section class="py-24 bg-white">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="text-center mb-20">
+<h2 class="text-navy-deep text-4xl font-black tracking-tight mb-4">How It Works</h2>
+<p class="text-slate-500 text-lg max-w-2xl mx-auto">Creating a legally sound Israeli will has never been this simple. Our platform guides you every step of the way.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-12">
+<div class="group flex flex-col items-center text-center p-8 rounded-3xl hover:bg-slate-50 transition-all">
+<div class="w-16 h-16 bg-slate-100 group-hover:bg-willful-blue group-hover:text-white text-willful-blue rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 transform group-hover:-rotate-6">
+<span class="material-symbols-outlined text-3xl font-bold">quiz</span>
+</div>
+<h3 class="text-navy-deep text-xl font-extrabold mb-3">1. Questionnaire</h3>
+<p class="text-slate-500 leading-relaxed">
+                            Answer our intuitive online interview tailored to Israeli inheritance law. It takes less than 15 minutes.
+                        </p>
+</div>
+<div class="group flex flex-col items-center text-center p-8 rounded-3xl hover:bg-slate-50 transition-all">
+<div class="w-16 h-16 bg-slate-100 group-hover:bg-willful-blue group-hover:text-white text-willful-blue rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 transform group-hover:rotate-6">
+<span class="material-symbols-outlined text-3xl font-bold">payments</span>
+</div>
+<h3 class="text-navy-deep text-xl font-extrabold mb-3">2. Secure Payment</h3>
+<p class="text-slate-500 leading-relaxed">
+                            Pay securely via our encrypted fintech portal. We offer transparent, flat-rate pricing with no hidden fees.
+                        </p>
+</div>
+<div class="group flex flex-col items-center text-center p-8 rounded-3xl hover:bg-slate-50 transition-all">
+<div class="w-16 h-16 bg-slate-100 group-hover:bg-willful-blue group-hover:text-white text-willful-blue rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 transform group-hover:-rotate-6">
+<span class="material-symbols-outlined text-3xl font-bold">print</span>
+</div>
+<h3 class="text-navy-deep text-xl font-extrabold mb-3">3. Print &amp; Sign</h3>
+<p class="text-slate-500 leading-relaxed">
+                            Download your high-quality legal documents, print them, and sign them following our clear instructions.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Glassmorphism Pricing Section -->
+<section class="py-24 bg-slate-50">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="text-center mb-16">
+<h2 class="text-navy-deep text-4xl font-black tracking-tight mb-4">Simple, Transparent Pricing</h2>
+</div>
+<div class="flex justify-center">
+<div class="glass-morphism relative max-w-lg w-full p-10 lg:p-12 rounded-[2rem] shadow-2xl overflow-hidden group">
+<!-- Glow effect -->
+<div class="absolute -top-24 -right-24 w-48 h-48 bg-willful-blue/10 blur-3xl group-hover:bg-willful-blue/20 transition-all"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h3 class="text-navy-deep text-2xl font-black mb-1">Israeli Will Package</h3>
+<p class="text-slate-500 font-medium">Complete, legally-binding document</p>
+</div>
+<div class="text-right">
+<div class="text-navy-deep text-4xl font-black tracking-tighter">₪700</div>
+<div class="text-xs font-bold text-willful-blue uppercase">One-time payment</div>
+</div>
+</div>
+<hr class="border-slate-200 mb-8"/>
+<ul class="space-y-5 mb-10">
+<li class="flex items-center gap-3">
+<div class="bg-willful-blue/10 text-willful-blue rounded-full p-1 flex">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<span class="text-navy-deep/80 font-semibold text-sm">Valid under Israeli Inheritance Law</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="bg-willful-blue/10 text-willful-blue rounded-full p-1 flex">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<span class="text-navy-deep/80 font-semibold text-sm">Unlimited updates for 12 months</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="bg-willful-blue/10 text-willful-blue rounded-full p-1 flex">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<span class="text-navy-deep/80 font-semibold text-sm">Detailed signing instructions</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="bg-willful-blue/10 text-willful-blue rounded-full p-1 flex">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<span class="text-navy-deep/80 font-semibold text-sm">Customer support access</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="bg-willful-blue/10 text-willful-blue rounded-full p-1 flex">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<span class="text-navy-deep/80 font-semibold text-sm">Secure digital document storage</span>
+</li>
+</ul>
+<button class="w-full bg-willful-blue hover:bg-navy-deep text-white py-4 rounded-xl font-black text-lg shadow-lg shadow-willful-blue/30 transition-all flex items-center justify-center gap-2">
+                                Get Started
+                                <span class="material-symbols-outlined">bolt</span>
+</button>
+<p class="text-center text-xs text-slate-400 mt-6 font-medium">
+                                No recurring fees. Money-back guarantee if not satisfied.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Stark Footer -->
+<footer class="bg-navy-deep text-white py-16 px-6 lg:px-12">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-2">
+<div class="p-1 bg-willful-blue rounded text-white">
+<span class="material-symbols-outlined text-xl">shield</span>
+</div>
+<h2 class="text-xl font-extrabold tracking-tight">IsraelWills<span class="text-willful-blue">.com</span></h2>
+</div>
+<p class="text-slate-400 text-sm max-w-xs leading-relaxed">
+                        Modern estate planning for global citizens with assets in Israel. Secure, professional, and compliant.
+                    </p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-12 lg:gap-24">
+<div class="flex flex-col gap-4">
+<h4 class="text-xs font-black uppercase tracking-widest text-slate-500">Service</h4>
+<a class="text-slate-300 hover:text-willful-blue transition-colors text-sm font-medium" href="#">How it Works</a>
+<a class="text-slate-300 hover:text-willful-blue transition-colors text-sm font-medium" href="#">Pricing</a>
+<a class="text-slate-300 hover:text-willful-blue transition-colors text-sm font-medium" href="#">Sample Will</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-xs font-black uppercase tracking-widest text-slate-500">Legal</h4>
+<a class="text-slate-300 hover:text-willful-blue transition-colors text-sm font-medium" href="#">Privacy Policy</a>
+<a class="text-slate-300 hover:text-willful-blue transition-colors text-sm font-medium" href="#">Terms of Use</a>
+<a class="text-slate-300 hover:text-willful-blue transition-colors text-sm font-medium" href="#">Disclaimer</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-xs font-black uppercase tracking-widest text-slate-500">Support</h4>
+<a class="text-slate-300 hover:text-willful-blue transition-colors text-sm font-medium" href="#">FAQ</a>
+<a class="text-slate-300 hover:text-willful-blue transition-colors text-sm font-medium" href="#">Contact Us</a>
+<a class="text-slate-300 hover:text-willful-blue transition-colors text-sm font-medium" href="#">Reviews</a>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-6">
+<p class="text-slate-500 text-xs font-medium italic">
+                    IsraelWills.com is a legal technology platform, not a law firm.
+                </p>
+<div class="flex items-center gap-6">
+<p class="text-slate-500 text-xs font-bold uppercase tracking-widest">© 2024 IsraelWills.com</p>
+</div>
+</div>
+</div>
+</footer>
+<!-- Variants Switcher -->
+<div style="position: fixed; bottom: 20px; left: 20px; z-index: 99999; background: white; padding: 12px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-family: sans-serif; border: 1px solid #eee;">
+    <label style="font-size: 12px; font-weight: 600; margin-bottom: 8px; display: block; color: #333; text-transform: uppercase; letter-spacing: 0.5px;">View Design Variants</label>
+    <select onchange="window.location.href=this.value" style="padding: 8px 12px; border-radius: 4px; border: 1px solid #ccc; font-size: 14px; width: 220px; cursor: pointer; background-color: #f9f9f9;">
+        <option value="index.html">Original Design</option>
+        <option value="variant1.html">Variant 1 (Authoritative)</option>
+        <option value="variant2.html">Variant 2 (Warm Family)</option>
+        <option value="variant3.html">Variant 3 (Modern Fintech)</option>
+    </select>
+</div>
+<script>
+    const sel = document.querySelector('select');
+    const file = window.location.pathname.split('/').pop() || 'index.html';
+    for(let i=0; i<sel.options.length; i++) {
+        if(sel.options[i].value === file) sel.selectedIndex = i;
+    }
+</script>
+</body></html>
